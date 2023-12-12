@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +22,7 @@ public class SignUpActivity extends AppCompatActivity {
     private TextInputLayout lastNameEditText;
     private TextInputLayout emailEditText;
     private TextInputLayout passwordEditText;
+    private CheckBox checkBox;
 
     boolean hasErrors = false;
 
@@ -43,6 +45,7 @@ public class SignUpActivity extends AppCompatActivity {
         lastNameEditText = findViewById(R.id.editTextDateTransaction);
         emailEditText = findViewById(R.id.editTextAmount);
         passwordEditText = findViewById(R.id.editTextPassword);
+        checkBox = findViewById(R.id.checkBoxPrivacyTerms);
     }
 
     public void validate(View view) {
@@ -54,29 +57,34 @@ public class SignUpActivity extends AppCompatActivity {
         hasErrors = false;
 
         if (TextUtils.isEmpty(firstName)) {
-            firstNameEditText.setError("Campo obrigatório");
+            firstNameEditText.setError("Required field");
             changeState();
         }
 
         if (TextUtils.isEmpty(lastName)) {
-            lastNameEditText.setError("Campo obrigatório");
+            lastNameEditText.setError("Required field");
             changeState();
         }
 
         if (TextUtils.isEmpty(email)) {
-            emailEditText.setError("Campo obrigatório");
+            emailEditText.setError("Required field");
             changeState();
         }
 
         if (TextUtils.isEmpty(password)) {
-            passwordEditText.setError("Campo obrigatório");
+            passwordEditText.setError("Required field");
             changeState();
         }
 
-        saveProduct(firstName, lastName, email, password);
+        if(checkBox.isChecked()) {
+            Toast.makeText(this, "You need to agree with terms!", Toast.LENGTH_LONG).show();
+            changeState();
+        }
+
+        saveUser(firstName, lastName, email, password);
     }
 
-    private void saveProduct(String firstName, String lastName, String email, String password) {
+    private void saveUser(String firstName, String lastName, String email, String password) {
         if(!hasErrors) {
             try {
                 User user = new User();
@@ -86,12 +94,12 @@ public class SignUpActivity extends AppCompatActivity {
                 user.setPassword(password);
 
                 userDatasource.save(user);
-                Toast.makeText(this, "Usuário cadastrado com sucesso!", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "User created with success!", Toast.LENGTH_LONG).show();
 
                 Intent intent = new Intent(this, LoginActivity.class);
                 startActivity(intent);
             } catch (Exception ex) {
-                Toast.makeText(this, "Não foi possível cadastrar o usuário", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Could not possible to create a user.", Toast.LENGTH_LONG).show();
             }
         }
     }

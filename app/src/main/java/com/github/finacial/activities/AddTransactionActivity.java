@@ -93,17 +93,17 @@ public class AddTransactionActivity extends AppCompatActivity {
         hasErrors = false;
 
         if (TextUtils.isEmpty(description)) {
-            descriptionEditText.setError("Campo obrigatório");
+            descriptionEditText.setError("Required field");
             changeState();
         }
 
         if (TextUtils.isEmpty(date)) {
-            dateEditText.setError("Campo obrigatório");
+            dateEditText.setError("Required field");
             changeState();
         }
 
         if (TextUtils.isEmpty(amount)) {
-            amountEditText.setError("Campo obrigatório");
+            amountEditText.setError("Required field");
             changeState();
         }
 
@@ -117,7 +117,7 @@ public class AddTransactionActivity extends AppCompatActivity {
                 int user_id = sharedPreferences.getInt("user_id", 0);
 
                 if(user_id < 0) {
-                    Toast.makeText(this, "Não foi possível cadastrar a transação", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Could not possible create transaction", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(this, HomeActivity.class);
                     startActivity(intent);
                 }
@@ -130,12 +130,12 @@ public class AddTransactionActivity extends AppCompatActivity {
                 transaction.setAmount(Double.parseDouble(amount));
 
                 transactionDatasource.save(transaction);
-                Toast.makeText(this, "Transação cadastrado com sucesso!", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Transaction create with success", Toast.LENGTH_LONG).show();
 
                 Intent intent = new Intent(this, HomeActivity.class);
                 startActivity(intent);
             } catch (Exception ex) {
-                Toast.makeText(this, "Não foi possível cadastrar a transação", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Could not possible create transaction", Toast.LENGTH_LONG).show();
             }
         }
     }

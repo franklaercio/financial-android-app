@@ -67,11 +67,11 @@ public class LoginActivity extends AppCompatActivity {
                 Intent intent = new Intent(this, HomeActivity.class);
                 startActivity(intent);
             } else {
-                Toast.makeText(this, "Não foi possível autenticar!", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Could not possible authenticate!", Toast.LENGTH_LONG).show();
             }
         } else {
-            emailEditText.setError("Campo obrigatório");
-            passwordEditText.setError("Campo obrigatório");
+            emailEditText.setError("Required field");
+            passwordEditText.setError("Required field");
         }
     }
 }

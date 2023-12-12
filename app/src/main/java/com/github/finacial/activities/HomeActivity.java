@@ -64,7 +64,7 @@ public class HomeActivity extends AppCompatActivity {
         try {
             return transactionDatasource.getAll();
         } catch (Exception ex) {
-            Toast.makeText(this, "Não foi possível recuperar as transações", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Could not possible save transaction", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             return null;
