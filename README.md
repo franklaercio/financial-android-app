@@ -11,7 +11,7 @@ helping you track and manage your daily expenses effortlessly.
 - Adding transactions with you need
 
 ### Check this video on Youtube Channel
-- ![Android app to manager transactions](https://youtu.be/weq8AasuRoI)
+- [Android app to manager transactions](https://youtu.be/weq8AasuRoI)
 
 ## How to start the application
 
@@ -29,11 +29,11 @@ The user interface (UI) and user experience (UX) are designed using the followin
 - Material Design
 - Android Based Layout
 
-| ![Login](assets/1.jpeg)            | ![Home](assets/2.jpeg)         |
+| ![Login](assets/1.jpg)            | ![Home](assets/2.jpg)         |
 | :--------------------------------: | :----------------------------: |
 |         _Login_                    |         _Home_                 |
 |                :--:                |              :--:              |
-|   ![Form Sign Up](assets/3.jpeg)   | ![Form Transaction](assets/4.jpeg) |
+|   ![Form Sign Up](assets/3.jpg)   | ![Form Transaction](assets/4.jpg) |
 |         _Form Sign Up_             |          _Form Transaction_    |
 
 ## Author
