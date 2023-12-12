@@ -44,6 +44,9 @@ public class HomeActivity extends AppCompatActivity {
         TextView textViewTotalAomount = findViewById(R.id.textViewTotalAmount);
         textViewTotalAomount.setText(BigDecimalUtils.toBRCurrencyFormat(transactionDatasource.getTotalAmount()));
 
+        TextView textViewAdvice = findViewById(R.id.textViewAdvice);
+        textViewAdvice.setText(setAdvice(transactionDatasource.getTotalAmount()));
+
         RecyclerView recyclerView = findViewById(R.id.homeTransactionList);
 
         List<Transaction> listTransactions = getAllTransactions();
@@ -68,6 +71,16 @@ public class HomeActivity extends AppCompatActivity {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             return null;
+        }
+    }
+
+    private String setAdvice(double amount) {
+        if(amount > 0) {
+            return "Money's good, let's save wisely.";
+        } else if (amount < 0) {
+            return "Debt alert, time to strategize.";
+        } else {
+            return "Broke, time to budget wisely.";
         }
     }
 }

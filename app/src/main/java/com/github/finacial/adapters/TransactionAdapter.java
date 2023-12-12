@@ -1,5 +1,7 @@
 package com.github.finacial.adapters;
 
+import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.github.finacial.R;
 import com.github.finacial.domain.Transaction;
+import com.github.finacial.domain.TransactionType;
 import com.github.finacial.utils.BigDecimalUtils;
 
 import java.util.List;
@@ -61,7 +64,13 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
         Transaction item = transactions.get(position);
         holder.txtDate.setText(item.getDate());
         holder.txtDescription.setText(item.getDescription());
-        holder.txtAmount.setText(BigDecimalUtils.toBRCurrencyFormat(item.getAmount()));
+
+        if(item.getType().equals(TransactionType.DEBIT)) {
+            holder.txtAmount.setText(BigDecimalUtils.toBRCurrencyFormat(-item.getAmount()));
+            holder.txtAmount.setTextColor(Color.RED);
+        } else {
+            holder.txtAmount.setText(BigDecimalUtils.toBRCurrencyFormat(item.getAmount()));
+        }
     }
 
     @Override

@@ -119,6 +119,7 @@
 
         <!-- Data de validade real do cartão -->
         <TextView
+            android:id="@+id/textViewAdvice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="up by 24% from last month"
