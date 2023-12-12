@@ -67,7 +67,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
-        android:layout_height="192dp"
+        android:layout_height="200dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:background="@color/green"
@@ -102,7 +102,7 @@
             android:fontFamily="@font/fira_sans"
             android:text="Today, 09 Sept 2023"
             android:textColor="@color/white"
-            android:textSize="10sp" />
+            android:textSize="12sp" />
 
         <!-- Nome do titular do cartão -->
 
@@ -124,7 +124,7 @@
             android:layout_height="wrap_content"
             android:text="up by 24% from last month"
             android:textColor="@color/white"
-            android:textSize="10sp" />
+            android:textSize="12sp" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

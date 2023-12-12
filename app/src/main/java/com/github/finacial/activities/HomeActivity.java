@@ -3,6 +3,7 @@ package com.github.finacial.activities;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -78,7 +79,7 @@ public class HomeActivity extends AppCompatActivity {
         if(amount > 0) {
             return "Money's good, let's save wisely.";
         } else if (amount < 0) {
-            return "Debt alert, time to strategize.";
+            return "Debit alert, time to strategics.";
         } else {
             return "Broke, time to budget wisely.";
         }
