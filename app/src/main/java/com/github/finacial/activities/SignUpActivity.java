@@ -76,7 +76,7 @@ public class SignUpActivity extends AppCompatActivity {
             changeState();
         }
 
-        if(checkBox.isChecked()) {
+        if(!checkBox.isChecked()) {
             Toast.makeText(this, "You need to agree with terms!", Toast.LENGTH_LONG).show();
             changeState();
         }

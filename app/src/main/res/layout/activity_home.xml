@@ -45,13 +45,11 @@
         android:id="@+id/imageView2"
         android:layout_width="40dp"
         android:layout_height="58dp"
-        android:layout_marginStart="237dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/avatar_svgrepo_com" />
 
@@ -68,7 +66,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="382dp"
+        android:layout_width="0dp"
         android:layout_height="192dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
@@ -78,7 +76,6 @@
         app:circularflow_radiusInDP="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.166">
@@ -131,7 +128,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/homeTransactionList"
-        android:layout_width="382dp"
+        android:layout_width="0dp"
         android:layout_height="381dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"

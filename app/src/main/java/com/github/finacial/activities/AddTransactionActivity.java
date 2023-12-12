@@ -1,12 +1,17 @@
 package com.github.finacial.activities;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.graphics.MaskFilter;
 import android.os.Bundle;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -19,6 +24,8 @@ import com.github.finacial.datasource.TransactionDatasource;
 import com.github.finacial.domain.Transaction;
 import com.github.finacial.domain.TransactionType;
 import com.google.android.material.textfield.TextInputLayout;
+
+import java.util.Calendar;
 
 public class AddTransactionActivity extends AppCompatActivity {
 
@@ -83,6 +90,24 @@ public class AddTransactionActivity extends AppCompatActivity {
         descriptionEditText = findViewById(R.id.editTextDescription);
         dateEditText = findViewById(R.id.editTextDateTransaction);
         amountEditText = findViewById(R.id.editTextAmount);
+
+        dateEditText.getEditText().setOnClickListener(v -> {
+            final Calendar c = Calendar.getInstance();
+
+            int year = c.get(Calendar.YEAR);
+            int month = c.get(Calendar.MONTH);
+            int day = c.get(Calendar.DAY_OF_MONTH);
+
+            DatePickerDialog datePickerDialog = new DatePickerDialog(
+                    AddTransactionActivity.this,
+                    (view, year1, monthOfYear, dayOfMonth) -> dateEditText.getEditText().setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year1),
+                    year, month, day);
+
+            datePickerDialog.show();
+            datePickerDialog.getButton(DatePickerDialog.BUTTON_NEGATIVE).setTextColor(Color.BLACK);
+            datePickerDialog.getButton(DatePickerDialog.BUTTON_POSITIVE).setTextColor(Color.BLACK);
+            datePickerDialog.getButton(DatePickerDialog.BUTTON_NEUTRAL).setTextColor(Color.BLACK);
+        });
     }
 
     public void validate(View view) {
